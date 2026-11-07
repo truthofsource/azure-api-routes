@@ -13,3 +13,9 @@ The first local fixtures incorrectly expected the period helper to throw and sup
 Not claimed: complete handler typechecking, Azure Functions host discovery, Entra token verification, database writes, transaction/replay concurrency, SQL grant acceptance, live application submission or inbox receipt. These require the maintained private application and separately authorized hosted checks.
 
 The optional GitHub workflow is manual-only; repository publication does not run it. Local checks are used to avoid spending Actions minutes for this portfolio update.
+
+## Tools and utilities documentation review — November 7, 2026
+
+Added a prominent README table naming the relevant tools/services and their jobs. The wording distinguishes actual platform components, operating utilities, selected source adapters, optional preparation and local teaching examples. Relevant step headings name their tools while the four-step order and explanatory sentences remain unchanged.
+
+This editorial pass did not change application code, dependencies, infrastructure, workflows or cloud settings. Existing tests and screenshots retain their original evidence scope; no application suite, live scanner, browser sign-in, paid request or GitHub Actions run was executed for this wording update.

@@ -10,12 +10,25 @@ Employees need to submit their time, supervisors need to review it, and applican
 
 Use explicit Azure Functions routes with shared checks and clear responses. Keep public application submission separate from staff listing, review and employee records.
 
+## Tools Used and What They Do
+
+| Tool or service | What it does | Where it fits |
+| --- | --- | --- |
+| Azure Functions v4 SDK | Map HTTP paths and methods to their handlers. | Actual registrations preserved in the selected route references. |
+| Node.js and TypeScript | Run the API and express its request rules. | Actual implementation; the local build extracts selected pure functions. |
+| mssql | Send SQL queries and transactions from the Node.js handlers. | Actual reference imports; SQL connections and writes are not executed here. |
+| Microsoft Entra ID | Supply the staff identity checked by protected handlers. | Actual application boundary; local tests do not verify real bearer tokens. |
+| React | Collect form answers and initiate requests in the platform website. | Frontend context; this repository is a route workbench, not the full React app. |
+| TypeScript compiler and Node test runner | Extract/transpile validators and run the selected tests. | Local validation; not complete handler typechecking or Functions-host discovery. |
+
+The loopback preview explains the request path without submitting applications, saving timesheets or sending messages.
+
 ## Step by step
 
-1. **Choose the route.** Match the request address and HTTP method to the registered handler. Reading a list and submitting a form are separate actions even when they use the same address.
-2. **Check access and answers.** Staff requests require a verified identity and the right access to the selected record. Public applications use their own submission checks without giving applicants a staff account.
-3. **Save the allowed change.** The live implementation checks the current record and saves related changes together in SQL. Its response tells the website what happened, while email delivery remains a separate outcome.
-4. **Prove the boundary.** Run the source validators against fictional examples and inspect the registered routes. Keep local validation evidence separate from real sign-in, database writes and delivery testing.
+1. **Choose the route (Azure Functions).** Match the request address and HTTP method to the registered handler. Reading a list and submitting a form are separate actions even when they use the same address.
+2. **Check access and answers (Entra and validators).** Staff requests require a verified identity and the right access to the selected record. Public applications use their own submission checks without giving applicants a staff account.
+3. **Save the allowed change (SQL transactions).** The live implementation checks the current record and saves related changes together in SQL. Its response tells the website what happened, while email delivery remains a separate outcome.
+4. **Prove the boundary (Node test runner).** Run the source validators against fictional examples and inspect the registered routes. Keep local validation evidence separate from real sign-in, database writes and delivery testing.
 
 ## What was built
 
