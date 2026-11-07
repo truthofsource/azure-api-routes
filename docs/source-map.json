@@ -1,0 +1,93 @@
+{
+  "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+  "files": [
+    {
+      "sourcePath": "apps/api/src/functions/timesheets.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "4713f8436edd6da33e3c9c244346c7f85114382518e75dac9996c6e2747aba71",
+      "publicPath": "reference/routes/timesheets.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "df83351118bf7f286a0ac7539f467a9710da6778dd1ee176e6e29a8a5a271f17"
+    },
+    {
+      "sourcePath": "apps/api/src/functions/timesheetreview.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "ce0c3f2080a8aa86334cfb262cf29758d27ba62aaf904115513f381a6cce0ae1",
+      "publicPath": "reference/routes/timesheetreview.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "4a19938733849da3a926f92aa832f46e06a884d32f87feb2fb4d2fbd0a9a89d1"
+    },
+    {
+      "sourcePath": "apps/api/src/functions/timesheetcorrection.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "69b1fd95bae00307833ebcdab86ef0311ed62e5e58ef955db1d09a094f94074c",
+      "publicPath": "reference/routes/timesheetcorrection.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "63a8feb48a2786044a5289046ba964eb7af11d42ff6f8af5e580d05974d9228e"
+    },
+    {
+      "sourcePath": "apps/api/src/functions/publicemploymentapplications.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "f33d83cf3151ab9f85fb5d730ccfa5d7b4097b2bb0a8dcaeaf27e20c5bb7be00",
+      "publicPath": "reference/routes/publicemploymentapplications.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "f3e48bc0c2a355137cfd5746bfc59562e3f4a0993974df6e99ea2a6db73ec7fc"
+    },
+    {
+      "sourcePath": "apps/api/src/contracts/publicEmploymentApplication.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "42783fbe746cfd8364932830606761b0634a545a1ce3ed5e354108b4f4b12af8",
+      "publicPath": "reference/contracts/publicEmploymentApplication.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "42783fbe746cfd8364932830606761b0634a545a1ce3ed5e354108b4f4b12af8"
+    },
+    {
+      "sourcePath": "apps/api/src/contracts/jobTitles.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "c3321bfd60e693e1f17c0ffd81bad1bbef75977bd24b53e6836c70781a95c439",
+      "publicPath": "reference/contracts/jobTitles.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "c3321bfd60e693e1f17c0ffd81bad1bbef75977bd24b53e6836c70781a95c439"
+    },
+    {
+      "sourcePath": "apps/api/src/contracts/phoneNumber.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "00397d21eaf33c88667c8c65ec0b12252f0d01819a39bca952ca0be3e6136ce2",
+      "publicPath": "reference/contracts/phoneNumber.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "00397d21eaf33c88667c8c65ec0b12252f0d01819a39bca952ca0be3e6136ce2"
+    },
+    {
+      "sourcePath": "apps/api/src/contracts/publicEmploymentApplication.test.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "b4083afc2672ed09c7fd26a2fcccdae5d41eed5514e12ee4a157350ef700a8a9",
+      "publicPath": "reference/tests/publicEmploymentApplication.test.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "b4083afc2672ed09c7fd26a2fcccdae5d41eed5514e12ee4a157350ef700a8a9"
+    },
+    {
+      "sourcePath": "apps/api/src/auth/requireAppRole.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "b56129bfd3a5023e0985667d9b3f3fc85ee468b79025b9c8d3ba959a175c322d",
+      "publicPath": "reference/auth/requireAppRole.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "3abfdbac6ad7f28792ecb68444ca7ffc66076a2205c8c1c8953957fae8fee855"
+    },
+    {
+      "sourcePath": "apps/api/host.json",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "331735862a3b762e3eab0594538a7896df13c1053506ce1113197464c2bc1ffe",
+      "publicPath": "reference/host.json",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "331735862a3b762e3eab0594538a7896df13c1053506ce1113197464c2bc1ffe"
+    },
+    {
+      "sourcePath": "apps/api/src/auth/teamRecordAccess.ts",
+      "sourceCommit": "28ffac03a537d3bbd667200c3fee333d880bd3c8",
+      "sourceSha256": "946a76d79bf4ad9273fc72afabb2107dce189be46380a87796a24f983c3eb124",
+      "publicPath": "reference/auth/teamRecordAccess.ts",
+      "adaptation": "Replace role prefix and organization wording consistently; no runtime adapter or environment values supplied",
+      "publicSha256": "8e7f35bd407899184b4ab67a775e7eb4656375b70e95db60f12e8eb6b9119be8"
+    }
+  ]
+}

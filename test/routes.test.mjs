@@ -1,0 +1,16 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {validatePayPeriodCycle,validateEntries,calculateTotals,parsePaging,getStatusFilter} from '../.local/timesheetRules.mjs';
+const good=()=>({workDate:'2026-06-22',serviceType:'regular',timeIn1:'09:00',timeOut1:'17:00'});
+test('source catalog has five registrations and six method/path pairs',()=>{const r=JSON.parse(readFileSync('data/routes.json'));assert.equal(r.length,5);assert.equal(r.reduce((s,x)=>s+x.methods.length,0),6);assert.ok(r.every(x=>x.authLevel==='anonymous'));assert.deepEqual(r.find(x=>x.name==='publicEmploymentApplications').methods,['POST']);});
+test('source period policy accepts its anchored fortnight and rejects wrong cycle',()=>{assert.equal(validatePayPeriodCycle('2026-06-21','2026-07-04'),null);assert.match(validatePayPeriodCycle('2026-06-22','2026-07-05'),/align/);});
+test('source entry validator calculates eight hours',()=>{const x=validateEntries([good()],'2026-06-21','2026-07-04');assert.equal(x[0].totalHours,8);assert.ok(calculateTotals(x,'2026-06-21'));});
+test('reversed work period is rejected',()=>assert.throws(()=>validateEntries([{...good(),timeOut1:'08:00'}],'2026-06-21','2026-07-04')));
+test('duplicate day and service is rejected',()=>assert.throws(()=>validateEntries([good(),good()],'2026-06-21','2026-07-04')));
+test('entry outside period is rejected',()=>assert.throws(()=>validateEntries([{...good(),workDate:'2026-07-06'}],'2026-06-21','2026-07-04')));
+test('second work period requires paired times',()=>assert.throws(()=>validateEntries([{...good(),timeIn2:'18:00'}],'2026-06-21','2026-07-04')));
+test('entry collection has a bounded size',()=>{assert.throws(()=>validateEntries([],'2026-06-21','2026-07-04'));assert.throws(()=>validateEntries(Array.from({length:29},good),'2026-06-21','2026-07-04'));});
+test('pagination clamps requested page size',()=>{assert.equal(parsePaging({url:'http://localhost/api/mytimesheets?pageSize=200'}).pageSize,100);});
+test('unknown status filter is rejected',()=>assert.throws(()=>getStatusFilter({url:'http://localhost/api/timesheets?status=cleared'})));
+test('protected source handlers explicitly require app roles',()=>{for(const p of ['timesheets','timesheetreview','timesheetcorrection'])assert.match(readFileSync('reference/routes/'+p+'.ts','utf8'),/requireAnyAppRole\(/);});

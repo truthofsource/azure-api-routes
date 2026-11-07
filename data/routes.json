@@ -1,0 +1,53 @@
+[
+  {
+    "name": "timesheets",
+    "path": "/api/timesheets",
+    "methods": [
+      "GET",
+      "POST"
+    ],
+    "authLevel": "anonymous",
+    "handler": "withReturnedRecordAudit(\"timesheets\", timesheetsHandler)",
+    "source": "reference/routes/timesheets.ts"
+  },
+  {
+    "name": "myTimesheets",
+    "path": "/api/mytimesheets",
+    "methods": [
+      "GET"
+    ],
+    "authLevel": "anonymous",
+    "handler": "withReturnedRecordAudit(\"myTimesheets\", listMyTimesheets)",
+    "source": "reference/routes/timesheets.ts"
+  },
+  {
+    "name": "timesheetReview",
+    "path": "/api/timesheetreview",
+    "methods": [
+      "POST"
+    ],
+    "authLevel": "anonymous",
+    "handler": "timesheetReview",
+    "source": "reference/routes/timesheetreview.ts"
+  },
+  {
+    "name": "timesheetCorrection",
+    "path": "/api/timesheetcorrection",
+    "methods": [
+      "POST"
+    ],
+    "authLevel": "anonymous",
+    "handler": "timesheetCorrection",
+    "source": "reference/routes/timesheetcorrection.ts"
+  },
+  {
+    "name": "publicEmploymentApplications",
+    "path": "/api/publicemploymentapplications",
+    "methods": [
+      "POST"
+    ],
+    "authLevel": "anonymous",
+    "handler": "publicEmploymentApplications",
+    "source": "reference/routes/publicemploymentapplications.ts"
+  }
+]
