@@ -4,7 +4,11 @@ An API route is the address and action a website uses to ask its server to do so
 
 ## The business problem
 
-Employees need to submit their time, supervisors need to review it, and applicants need to apply without receiving staff access. A button on a website is not enough: the server must decide who may act, check the answers and save the right records.
+Employees need to submit their time, supervisors need to review it and applicants need to apply without receiving a staff account. These processes share a website but have different rules about who may act, which person's records may be accessed and what must be saved together.
+
+If the website calls a route that the deployed backend does not expose, users can encounter a broken form or an unhelpful response-parsing error. If access checks rely only on what the page displays, a caller may attempt the same request directly. Repeated application submissions and invalid timesheet answers also need deliberate handling.
+
+The business need was a clear server entry point for each action, with consistent validation, record-level access and responses that tell the website what actually happened.
 
 ## The solution
 
