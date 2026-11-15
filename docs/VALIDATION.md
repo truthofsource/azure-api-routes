@@ -1,5 +1,7 @@
 # Source and validation evidence
 
+> Placeholder screenshots were removed on November 15, 2026. Written test results below retain their original dates and scope; historical screenshot references describe earlier captures. Proper Azure and application screenshots are deferred. The illustrated architecture is a source-based explanation, not a live-service screenshot.
+
 Source snapshot: `28ffac03a537d3bbd667200c3fee333d880bd3c8`. The [source map](source-map.json) records selected private paths, original hashes and public adaptations. Role prefixes and organization wording were replaced consistently; these references contain no environment configuration or business records.
 
 The build extracts 20 named pure timesheet functions and their constants/types. It transpiles the actual application parser, its supporting title/phone modules and 15 original contract tests. TypeScript AST parsing also inventories the five `app.http` registrations, exposing six method/path pairs. SQL and authentication dependencies remain reference-only and are not imported.

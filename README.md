@@ -1,5 +1,9 @@
 # Azure API Routes: Timesheets and Public Applications
 
+[![API routes — illustrated overview](docs/diagrams/architecture.png)](docs/diagrams/architecture.svg)
+
+[View SVG](docs/diagrams/architecture.svg) · [Download PNG](docs/diagrams/architecture.png) · [Edit in draw.io](docs/diagrams/architecture.drawio)
+
 An API route is the address and action a website uses to ask its server to do something. This project shows how real workforce-platform routes accept timesheets, restrict staff access and receive public job applications.
 
 ## The business problem
@@ -193,7 +197,7 @@ Save the route table, server file and observed requests without personal records
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -234,32 +238,13 @@ The walkthrough layout follows the prerequisites → creation/configuration → 
 
 Role names alone do not grant access to every record. The implementation also checks employee ownership, team access, assignments and allowed status changes where applicable; the [route guide](docs/ROUTES.md) explains the differences.
 
-```mermaid
-flowchart LR
-    A[Employee timesheet form] --> B[POST /api/timesheets]
-    B --> C[Verify identity and access]
-    C --> D[Check dates, time and confirmation]
-    D --> E[Save timesheet, entries and audit together]
-    E --> F[Return submitted result]
-```
-
-```mermaid
-flowchart LR
-    A[Public application form] --> B[POST /api/publicemploymentapplications]
-    B --> C[Check request ID, size and answers]
-    C --> D[Check repeat request]
-    D --> E[Commit application and related records]
-    E --> F[Return confirmation and handoff status]
-```
+[View the illustrated project overview](docs/diagrams/architecture.svg).
 
 ## Proof it works
 
 The local suite passes **26 tests**, including the 15 selected original application-contract tests. The demo calculates an eight-hour fictional timesheet, limits a requested page size of 200 to 100 and parses a fictional application using the extracted source validators.
 
-![Route overview with the two examples](assets/routes-overview.png)
-![Historical route troubleshooting](assets/route-troubleshooting.png)
-
-These screenshots show the local teaching preview. They do not show production records or prove real authentication, SQL permissions, concurrent writes or email receipt.
+The local teaching preview does not prove real authentication, SQL permissions, concurrent writes or email receipt. Proper application screenshots are deferred.
 
 ## A real issue and what it taught us
 

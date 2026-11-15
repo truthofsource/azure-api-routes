@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1682" viewBox="0 0 1200 1682" role="img" aria-labelledby="title desc">
+<title id="title">API routes — illustrated architecture</title>
+<desc id="desc">Actual timesheet and public-application request paths. Two actual route examples; the public workbench does not run the hosted SQL writes.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#586574" /></marker></defs>
+<rect width="1200" height="1682" fill="white" />
+<g font-family="Arial,Helvetica,sans-serif">
+<text x="54" y="36" font-size="12" font-weight="700" letter-spacing="1.8" fill="#617084">PROJECT ARCHITECTURE · ILLUSTRATED OVERVIEW</text>
+<text x="54" y="79" font-size="30" font-weight="700" fill="#172d46">API routes</text>
+<text x="54" y="110" font-size="16" fill="#526276">Actual timesheet and public-application request paths</text>
+<path d="M600.0 336 V370.0 H408.0 V402" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M600.0 336 V370.0 H792.0 V402" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M408.0 574 V608.0 H408.0 V640" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M792.0 574 V608.0 H792.0 V640" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M408.0 812 V846.0 H408.0 V878" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M792.0 812 V846.0 H792.0 V878" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M408.0 1050 V1084.0 H408.0 V1116" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M792.0 1050 V1084.0 H792.0 V1116" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M408.0 1288 V1322.0 H408.0 V1354" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M792.0 1288 V1322.0 H792.0 V1354" fill="none" stroke="#586574" stroke-width="1.7" stroke-linejoin="round" marker-end="url(#arrow)" />
+<g data-node="n0_0"><rect x="425.0" y="166" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="582.0" y="178" data-purpose-icon="n0_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2" /><path d="M2 8h20M5 5.5h.1M8 5.5h.1M11 5.5h.1" /></g></svg>
+<text x="600.0" y="238" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">React forms</text>
+<text x="600.0" y="266" text-anchor="middle" font-size="14" fill="#40556b">People enter their time or complete a job</text>
+<text x="600.0" y="284" text-anchor="middle" font-size="14" fill="#40556b">application.</text>
+</g>
+<g data-node="n1_0"><rect x="233.0" y="404" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="390.0" y="416" data-purpose-icon="n1_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2" /><path d="m8 9-3 3 3 3m8-6 3 3-3 3m-3-7-2 8" /></g></svg>
+<text x="408.0" y="476" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">POST /api/timesheets</text>
+<text x="408.0" y="504" text-anchor="middle" font-size="14" fill="#40556b">Receives an employee's submitted working</text>
+<text x="408.0" y="522" text-anchor="middle" font-size="14" fill="#40556b">hours.</text>
+</g>
+<g data-node="n1_1"><rect x="617.0" y="404" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="774.0" y="416" data-purpose-icon="n1_1"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2" /><path d="m8 9-3 3 3 3m8-6 3 3-3 3m-3-7-2 8" /></g></svg>
+<text x="792.0" y="476" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">POST /api/publicemploymentapplications</text>
+<text x="792.0" y="504" text-anchor="middle" font-size="14" fill="#40556b">Receives an application without requiring a</text>
+<text x="792.0" y="522" text-anchor="middle" font-size="14" fill="#40556b">staff account.</text>
+</g>
+<g data-node="n2_0"><rect x="233.0" y="642" width="350" height="170" rx="7" fill="#e1d5e7" stroke="#9673a6" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="390.0" y="654" data-purpose-icon="n2_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#745386" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#745386" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3" /><path d="M2 20v-2a7 7 0 0 1 11-5m4-2 5 2v4c0 3-5 5-5 5s-5-2-5-5v-4l5-2Z" /></g></svg>
+<text x="408.0" y="714" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Identity and record access</text>
+<text x="408.0" y="742" text-anchor="middle" font-size="14" fill="#40556b">Checks who signed in and which records they</text>
+<text x="408.0" y="760" text-anchor="middle" font-size="14" fill="#40556b">may use.</text>
+</g>
+<g data-node="n2_1"><rect x="617.0" y="642" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="774.0" y="654" data-purpose-icon="n2_1"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="15" height="18" rx="2" /><path d="M9 4V2h7v2m-9 6 1 1 2-2m2 1h5m-10 5 1 1 2-2m2 1h5m-10 4h10" /></g></svg>
+<text x="792.0" y="714" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Submission checks</text>
+<text x="792.0" y="742" text-anchor="middle" font-size="14" fill="#40556b">Checks the answers and spots repeated</text>
+<text x="792.0" y="760" text-anchor="middle" font-size="14" fill="#40556b">submissions.</text>
+</g>
+<g data-node="n3_0"><rect x="233.0" y="880" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="390.0" y="892" data-purpose-icon="n3_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 3" /></g></svg>
+<text x="408.0" y="952" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Timesheet rules</text>
+<text x="408.0" y="980" text-anchor="middle" font-size="14" fill="#40556b">Checks that dates, hours and confirmation</text>
+<text x="408.0" y="998" text-anchor="middle" font-size="14" fill="#40556b">meet the rules.</text>
+</g>
+<g data-node="n3_1"><rect x="617.0" y="880" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="774.0" y="892" data-purpose-icon="n3_1"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7a9 9 0 0 0-15-2L2 8m0-5v5h5m-3 9a9 9 0 0 0 15 2l3-3m0 5v-5h-5" /></g></svg>
+<text x="792.0" y="952" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">Application rules</text>
+<text x="792.0" y="980" text-anchor="middle" font-size="14" fill="#40556b">Makes repeat requests safe and checks</text>
+<text x="792.0" y="998" text-anchor="middle" font-size="14" fill="#40556b">related records.</text>
+</g>
+<g data-node="n4_0"><rect x="233.0" y="1118" width="350" height="170" rx="7" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="390.0" y="1130" data-purpose-icon="n4_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#527a50" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#527a50" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14c0 4 18 4 18 0V5M3 12c0 4 18 4 18 0" /></g></svg>
+<text x="408.0" y="1190" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">SQL transaction</text>
+<text x="408.0" y="1218" text-anchor="middle" font-size="14" fill="#40556b">Saves the timesheet and its history</text>
+<text x="408.0" y="1236" text-anchor="middle" font-size="14" fill="#40556b">together.</text>
+</g>
+<g data-node="n4_1"><rect x="617.0" y="1118" width="350" height="170" rx="7" fill="#d5e8d4" stroke="#82b366" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="774.0" y="1130" data-purpose-icon="n4_1"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#527a50" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#527a50" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" /><path d="M3 5v14c0 4 18 4 18 0V5M3 12c0 4 18 4 18 0" /></g></svg>
+<text x="792.0" y="1190" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">SQL transaction</text>
+<text x="792.0" y="1218" text-anchor="middle" font-size="14" fill="#40556b">Saves the application and its related</text>
+<text x="792.0" y="1236" text-anchor="middle" font-size="14" fill="#40556b">records together.</text>
+</g>
+<g data-node="n5_0"><rect x="233.0" y="1356" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="390.0" y="1368" data-purpose-icon="n5_0"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9l-6 4V5a2 2 0 0 1 1-2Z" /><path d="M7 8h11M7 13h8" /></g></svg>
+<text x="408.0" y="1428" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">API response</text>
+<text x="408.0" y="1456" text-anchor="middle" font-size="14" fill="#40556b">Tells the page whether the timesheet was</text>
+<text x="408.0" y="1474" text-anchor="middle" font-size="14" fill="#40556b">saved.</text>
+</g>
+<g data-node="n5_1"><rect x="617.0" y="1356" width="350" height="170" rx="7" fill="#dae8fc" stroke="#6c8ebf" stroke-width="1.5" />
+<svg width="36" height="36" viewBox="0 0 40 40" x="774.0" y="1368" data-purpose-icon="n5_1"><rect x="1" y="1" width="38" height="38" rx="8" fill="white" stroke="#315f8a" stroke-opacity="0.3" /><g transform="translate(8 8)" fill="none" stroke="#315f8a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9l-6 4V5a2 2 0 0 1 1-2Z" /><path d="M7 8h11M7 13h8" /></g></svg>
+<text x="792.0" y="1428" text-anchor="middle" font-size="16" font-weight="700" fill="#20384f">API response</text>
+<text x="792.0" y="1456" text-anchor="middle" font-size="14" fill="#40556b">Tells the applicant what was saved and what</text>
+<text x="792.0" y="1474" text-anchor="middle" font-size="14" fill="#40556b">happens next.</text>
+</g>
+<line x1="54" y1="1554" x2="1146" y2="1554" stroke="#dce2e9" />
+<text x="54" y="1575" font-size="13" fill="#526276">Two actual route examples; the public workbench does not run the hosted SQL writes.</text>
+<text x="54" y="1656" font-size="11.5" fill="#687789">truthofsource/azure-api-routes · Purpose icons, not vendor logos or completion status</text></g></svg>

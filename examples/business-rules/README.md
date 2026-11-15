@@ -6,8 +6,6 @@
 
 [Business problem](#the-business-problem) · [Solution](#the-solution) · [Strengths](#engineering-strengths) · [Proof](#proof-it-works) · [Commands](docs/COMMANDS.md) · [Step by step](#step-by-step)
 
-![Local implementation reference](docs/images/01-overview.png)
-
 ## The Business Problem
 
 Payroll and employee administration depend on more than a form being filled in. A wage change needs a valid amount, an authorized reviewer and the current record. A payroll draft may contain meaningful earlier work even if its latest visible version appears empty. Staff need those distinctions to remain true when several people use the system.
@@ -186,7 +184,7 @@ Keep the policy, implementation, tests and observed output together. Record that
 | Failure boundary | A meaningful denied, malformed, stale or failed case | Not yet recorded |
 | Recovery / cleanup | What you restored or removed and what remains billed | Not yet recorded |
 
-Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. Existing portfolio images are references, not evidence that you performed these steps.
+Capture your own architecture/configuration, one working result and one failure/recovery result. Keep tokens, credentials, personal records and private identifiers out of public screenshots. The architecture diagram explains the design; record your own results rather than treating it as execution evidence.
 
 ### Troubleshooting order
 
@@ -229,15 +227,14 @@ A short walkthrough of the process, with technical instructions and evidence lim
 
 ## Architecture
 
-```mermaid
-flowchart LR
-  UI[User action / JSON] --> Route[HTTP route]
-  Route --> Auth[Verified identity / route permissions]
-  Auth --> Rules[Input / role / state / revision rules]
-  Rules --> Store[Parameterized SQL transaction]
-  Store --> Audit[Business change + audit]
-  Audit --> Response[Useful success / validation / conflict response]
-```
+1. **User action / JSON** → **HTTP route**.
+2. **HTTP route** → **Verified identity / route permissions**.
+3. **Verified identity / route permissions** → **Input / role / state / revision rules**.
+4. **Input / role / state / revision rules** → **Parameterized SQL transaction**.
+5. **Parameterized SQL transaction** → **Business change + audit**.
+6. **Business change + audit** → **Useful success / validation / conflict response**.
+
+[View the illustrated project overview](../../docs/diagrams/architecture.svg).
 
 This project is derived from actual workforce-platform implementation. Identifying labels/targets use examples. The local viewer and demonstration are new reference code; [source mapping](docs/SOURCE-MAP.md) identifies the copied/extracted files and limitations.
 
@@ -266,8 +263,6 @@ python -B scripts/demo.py
 
 ### 2. Inspect the decision output
 
-![Working reference example](docs/images/02-example.png)
-
 The output is explicitly fictional and exercises the included logic. A successful rule test or simulation is not a completed real-world operation. The public example runs standalone rules and reports errors. It does not verify login credentials, connect to SQL, test competing requests across servers or complete payroll.
 
 ### 3. Open the reference viewer
@@ -276,7 +271,7 @@ The output is explicitly fictional and exercises the included logic. A successfu
 python -B scripts/preview.py --port 8139
 ```
 
-Open [the local reference](http://127.0.0.1:8139). Switch between Overview, Working example and Implementation context. Ctrl+C stops it. Screenshots are genuine local captures, not hosted application/Azure Portal screenshots.
+Open [the local reference](http://127.0.0.1:8139). Switch between Overview, Working example and Implementation context. Ctrl+C stops it. Proper application and Azure screenshots are deferred; this remains a runnable local reference.
 
 ## What Business Logic Means Here
 
@@ -289,7 +284,6 @@ The extracted rules require a positive decimal rate with at most two decimal pla
 The full database code checks the saved history again before changing it. It uses SQL queries that keep user values separate from query instructions, and database locks that prevent competing changes. It then saves an audit record. Record IDs and version checks help prevent duplicates and outdated changes. The standalone rule tests do not test these database and retry steps.
 
 The draft classifier checks all versions. Earlier lines, payment changes, secure details or meaningful notes make the packet a draft even when the latest version has no hours. Unknown/incorrectly structured snapshots return unknown rather than being classified safe to discard.
-
 
 ## Operations, Limits and Growth
 
