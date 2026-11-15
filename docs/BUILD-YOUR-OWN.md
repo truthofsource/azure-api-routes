@@ -28,6 +28,7 @@ Read [the existing validation scope](VALIDATION.md) before running anything. A r
 git clone https://github.com/truthofsource/azure-api-routes.git
 cd azure-api-routes
 git rev-parse HEAD
+git rev-parse --show-toplevel
 git status --short
 ```
 
@@ -65,6 +66,20 @@ npm run demo
 2. Compare your own output with [the proof and limits](../README.md#proof-it-works), then record source version, command, expected result, observed result and unresolved work. Capture screenshots of your own fictional output rather than presenting the existing screenshots as your execution.
 
 **Expected result:** Local route/validator behavior, not complete handler hosting, real bearer-token validation or SQL access. Your evidence must say whether it covers local logic, a real tool run, a hosted service or a human observation.
+
+### Start the local preview
+
+Open a second terminal in the same repository root printed by `git rev-parse --show-toplevel`. Run the command below from that root, after the baseline has passed; it stays running while you use the preview.
+
+```bash
+npm run preview
+```
+
+Open [http://127.0.0.1:8145](http://127.0.0.1:8145). Use the exact hostname shown here; a localhost address and a 127.0.0.1 address are not interchangeable for every project's host checks.
+
+This is the project's local Node preview. Run it with the same Node/npm installation used for the baseline; it does not publish the app or require an Azure sign-in.
+
+Keep one preview per listening port. Stop your own earlier preview with Ctrl+C before starting another one on that port, or use only a port override documented by the project. If you stop the preview, rerun only its startup command; you do not need to rebuild or redeploy cloud services.
 
 ## Step 5: Plan an independent cloud extension, if needed
 
