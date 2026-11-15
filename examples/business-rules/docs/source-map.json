@@ -1,0 +1,40 @@
+{
+  "date": "2026-11-06",
+  "files": [
+    {
+      "source": "apps/api/src/payroll/payrollPacketDiscard.ts",
+      "sourceSha256": "683177aa291a0289a9d18c7f341b7509570a153c6bb6ce6d6aec24e93a9d29ec",
+      "publicFile": "src/payrollPacketDiscard.ts"
+    },
+    {
+      "source": "apps/api/src/payroll/payrollPacketDiscard.test.ts",
+      "sourceSha256": "1e70b7403f0163f9981941b437bdb365da92a13dba96c595239dd4056abc5745",
+      "publicFile": "src/payrollPacketDiscard.test.ts"
+    },
+    {
+      "source": "apps/api/src/payroll/wageChanges.ts",
+      "sourceSha256": "72fdc7e66dd725146b672f476eb8109736d68a141afb8db36472622c7abccb2b",
+      "publicFile": "src/wageRules.ts"
+    },
+    {
+      "source": "apps/api/src/payroll/wageChanges.ts",
+      "sourceSha256": "72fdc7e66dd725146b672f476eb8109736d68a141afb8db36472622c7abccb2b",
+      "publicFile": "reference/wageChanges.ts"
+    },
+    {
+      "source": "apps/api/src/functions/wagechanges.ts",
+      "sourceSha256": "d3584bd5ee2b7a1ac927f187a9e6db71c3b179fa59496bcbecc42fddc5df58b6",
+      "publicFile": "reference/wagechanges-route.ts"
+    },
+    {
+      "source": "apps/api/src/payroll/payrollPacketContract.ts",
+      "sourceSha256": "edab7f5d4c28b04572bac4a83501185fdefcd49d4a8044b6f118527f75cbeda8",
+      "publicFile": "reference/payrollPacketContract.ts"
+    }
+  ],
+  "publicAdaptations": [
+    "Example labels",
+    "New offline viewer/demonstration",
+    "See source-map guide for extracted rule and wrapper boundaries"
+  ]
+}

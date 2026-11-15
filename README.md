@@ -297,6 +297,14 @@ Open the local preview at `http://127.0.0.1:8145`. These commands do not connect
 - [Source and validation evidence](docs/VALIDATION.md)
 - [Actual selected handler source](reference/routes/)
 - [Deploying the Node.js API](https://github.com/truthofsource/azure-nodejs-api-deployment)
-- [Business rules and reliable saves](https://github.com/truthofsource/api-business-logic-and-workflow-controls)
+- [Business rules and reliable saves](https://github.com/truthofsource/azure-api-routes/tree/main/examples/business-rules)
 
 The manual-only validation workflow runs only when dispatched. Publishing this portfolio does not start an Actions run or deploy platform resources.
+
+## Consolidated Examples
+
+These related implementations are now maintained here:
+
+- [api-business-logic-and-workflow-controls](examples/business-rules/README.md)
+
+See [the consolidation guide](docs/CONSOLIDATION.md) for component scope, preserved tests and historical evidence.

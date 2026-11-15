@@ -1,0 +1,13 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';
+import {parseWageInput,validateWageDecision} from './wageRules.ts';
+const id='00000000-0000-4000-8000-000000000001', employee='00000000-0000-4000-8000-000000000002',revision='00000000-0000-4000-8000-000000000003';
+const request={action:'request',changeId:id,employeeId:employee,hourlyRate:'25.5',effectiveDate:'2026-11-06',reason:'pay_change',baselineRevision:null};
+const decision={action:'approve',changeId:id,employeeId:employee,revision,confirmed:true};
+test('normalizes decimal money without inventing an approval',()=>{assert.equal(parseWageInput(request).hourlyRate,'25.50')});
+test('rejects unknown fields and invalid dates',()=>{assert.throws(()=>parseWageInput({...request,ssn:'not-allowed'}));assert.throws(()=>parseWageInput({...request,effectiveDate:'2026-02-30'}))});
+test('rejects negative, numeric and excessive-precision money',()=>{for(const hourlyRate of ['-1',25,'25.555'])assert.throws(()=>parseWageInput({...request,hourlyRate}))});
+test('requires explicit supported decision confirmation',()=>{assert.throws(()=>parseWageInput({...decision,confirmed:false}))});
+test('rejects a stale revision before role permission can allow an action',()=>{assert.throws(()=>validateWageDecision({revision,status:'pending'},{...decision,revision:id},'actor',['Workforce.Admin']),error=>error.status===409)});
+test('rejects a second decision after pending status changes',()=>{assert.throws(()=>validateWageDecision({revision,status:'approved'},decision,'actor',['Workforce.Admin']),error=>error.status===409)});
+test('caregiver and Payroll-only roles cannot approve',()=>{for(const roles of [['Workforce.Caregiver'],['Workforce.Payroll']])assert.throws(()=>validateWageDecision({revision,status:'pending'},decision,'actor',roles),error=>error.status===403)});
+test('Admin or HR together with Payroll can approve at the same revision',()=>{for(const roles of [['Workforce.Admin'],['Workforce.HR','Workforce.Payroll']])assert.doesNotThrow(()=>validateWageDecision({revision,status:'pending'},decision,'actor',roles))});

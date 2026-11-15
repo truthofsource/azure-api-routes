@@ -1,0 +1,6 @@
+{
+  "implementation": "Actual wage rules, revision checks and complete draft-history classification",
+  "storeReference": "Serializable SQL transaction, locking, parameterized queries and audit insert are included as nonexecuted source",
+  "publicRuntime": "Pure extracted rules and small error adapter; no SQL/auth provider",
+  "caution": "A rule outcome alone is not a completed business transaction"
+}

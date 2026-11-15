@@ -1,0 +1,140 @@
+{
+  "source_repository": "api-business-logic-and-workflow-controls",
+  "source_commit": "60e003a202081bbca6939a555bbd47cf51b8f1fd",
+  "destination": "azure-api-routes",
+  "copied_files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "83b9b8b13f4fa07cdba414d702053774bce063c45a5313b1cffefbe6492a458f"
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "sha256": "a66554f146f30893ef05e99c4c302c3340e243c4878a40287bfd9ff4a42821c9"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "8da0f55249ad1148dc90ec3846981023b918750f4a1e4fa6b7227172c892e6e1"
+    },
+    {
+      "path": "README.md",
+      "sha256": "36bab8b961b725d0d1965b15cb694142f9f1b3d976254242d8fa428acb998eab"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "baa57bf1eb77d4d676813badae7fb3be51e8fb31b06f321110a3e8becbd5612d"
+    },
+    {
+      "path": "data/history.json",
+      "sha256": "12521c8c494ebf168b3499d63260837c1c0b0ddce2b2a7306a23cb9ef2005229"
+    },
+    {
+      "path": "data/project.json",
+      "sha256": "433d7f40859fe8bf239c1857f9a3acab84a164952b198e14e5f09d51be04e243"
+    },
+    {
+      "path": "docs/BUILD-YOUR-OWN.md",
+      "sha256": "d6245779b96f4b39b53c5203f333271df62202d1c050860634512c87397feb50"
+    },
+    {
+      "path": "docs/COMMANDS.md",
+      "sha256": "32db3a1a41b1cebc8a3f3aa4a8e69a64b305118c95218e4b9d2fa1252a78e79e"
+    },
+    {
+      "path": "docs/IMPLEMENTATION.md",
+      "sha256": "40399a2e126c3aac8b1463d39730b6e06d37f9c41e3001334ff6d3eae7b49ec4"
+    },
+    {
+      "path": "docs/LESSONS-LEARNED.md",
+      "sha256": "91d847fbe34fdfc36e32251b4509e637ae3066c7952b2f85849af37ecbca4145"
+    },
+    {
+      "path": "docs/OPERATIONS-AND-SCALING.md",
+      "sha256": "7e44f7dfbb247b7d36e441bdd8a2552f9b5dece3a9f4c0d825570d03ab9ce39e"
+    },
+    {
+      "path": "docs/SOURCE-MAP.md",
+      "sha256": "cca3d5d85142acfd35d67deba7ddfd26b4f6a841963abbdf4d4adcae01708b09"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "495615a57439076b174ba665cb5cfa81ba7d4053fd1ce2e84f3f7cb68283b534"
+    },
+    {
+      "path": "docs/images/01-overview.png",
+      "sha256": "6ac72cac2c94e18c0d2830c41dfde2d42ea80c4be6a57633e42e1a2ea79dd2e1"
+    },
+    {
+      "path": "docs/images/02-example.png",
+      "sha256": "b9dea7b21a881bc1008b5681b2168739897341bd600b9df1474fd2ee7e96ec4e"
+    },
+    {
+      "path": "docs/images/03-context.png",
+      "sha256": "4085b3b788383eddbe8f2eb52971bccd8a16252df6bb5964aff2a68b559158d2"
+    },
+    {
+      "path": "docs/images/04-mobile.png",
+      "sha256": "6eb78dd99ced67612218a54d0ba3f36aeb834a7e62f96c660f04070a115c6c6c"
+    },
+    {
+      "path": "docs/source-map.json",
+      "sha256": "86e7ef2022cc7d9b1f86a104e9c9b080a428f0c04cae6d56de1a3a01ffa30b55"
+    },
+    {
+      "path": "docs/validation-results.json",
+      "sha256": "d15b4ceb8441ff77ab87e3315e1ed33174f68b9cf8377048abda869f8f989fa0"
+    },
+    {
+      "path": "package.json",
+      "sha256": "706efaec3b390330cae464bdcf99467e56bb475d913828091b31dd0dfe6b546c"
+    },
+    {
+      "path": "preview/index.html",
+      "sha256": "7b7191d42557de106fd977da3c565040e659a214700fc816346b9736ff1c6d7a"
+    },
+    {
+      "path": "reference/payrollPacketContract.ts",
+      "sha256": "0e0d3c6bfae3b1f10963af5068213fc14b23db552975f9601b7d68e6b8b64b66"
+    },
+    {
+      "path": "reference/wageChanges.ts",
+      "sha256": "00aeff70e21f9bebab43a74ecd68e733d47a198e922ceec9fcd73332a8388d6b"
+    },
+    {
+      "path": "reference/wagechanges-route.ts",
+      "sha256": "125f36ad6d197e32657e6d2bf17ed2162a00847574af13f122ee547d88d6a6be"
+    },
+    {
+      "path": "scripts/demo.py",
+      "sha256": "0f20a7989b4f850b026387351fb1bed73d570689e2a020dbe9a1562fab6bbf25"
+    },
+    {
+      "path": "scripts/preview.py",
+      "sha256": "67131c8ef280b19cc4d0b3c4518e70fc2851fadbdc1500c5bb13761ac63930e1"
+    },
+    {
+      "path": "src/errors.ts",
+      "sha256": "1bd8fce6ad53904f6affbde42ce2be264535895b5a512901eb694a5f998bdb9b"
+    },
+    {
+      "path": "src/example.mjs",
+      "sha256": "c70825a202246f976898c9cd62997a5c7cfa18cc9edc172f56dcf7aa32d97631"
+    },
+    {
+      "path": "src/payrollPacketDiscard.test.ts",
+      "sha256": "5936c7750e839ac1557ff0687c5200788b03d44371dba1d889c8e1d6e6e358fc"
+    },
+    {
+      "path": "src/payrollPacketDiscard.ts",
+      "sha256": "2f243d4adc67f624359f10293836f14ce38efac0e10b38a46df158d4a309fb4b"
+    },
+    {
+      "path": "src/wageRules.test.ts",
+      "sha256": "31bc11895b1c3fcc2c974ac42767f3d91e5a5c584ca29217b1513166880489a3"
+    },
+    {
+      "path": "src/wageRules.ts",
+      "sha256": "6fd5997b845ba92159590ade5dda6cd834526e4bef6f6b04af8bbeb674cba3e6"
+    }
+  ],
+  "note": "Source snapshot retained; internal links and location guidance updated separately."
+}

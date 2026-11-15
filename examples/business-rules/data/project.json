@@ -1,0 +1,26 @@
+{
+  "slug": "api-business-logic-and-workflow-controls",
+  "title": "API Business Logic and Reliable Workforce Processes",
+  "tagline": "An API route is the entrance. Business rules decide which change is valid, authorized and still current.",
+  "problem": "Staff requests could contain malformed rates, an invalid role or an outdated revision. A payroll packet that looked empty could still contain meaningful edits in a prior version. Saving JSON without these rules could overwrite decisions or discard important work.",
+  "solution": "Separate route validation, trusted identity/role checks, pure business rules and the transactional store. Use actual wage-input/revision rules and complete payroll-draft history classification, with parameterized SQL/audit source shown separately.",
+  "outcome": "The runnable example rejects unauthorized approvals and stale decisions before a store operation, and preserves the distinction between empty, meaningful and unknown draft history. It demonstrates how business rules protect operational records rather than merely returning HTTP success.",
+  "strengths": [
+    [
+      "Rules stay testable",
+      "Pure rules can be checked without an HTTP server, Azure login or live database."
+    ],
+    [
+      "Conflicts are explicit",
+      "A stale revision or nonpending decision returns a conflict instead of silently overwriting newer work."
+    ],
+    [
+      "Data meaning is preserved",
+      "Draft classification examines every saved version and treats unknown shapes conservatively."
+    ]
+  ],
+  "code": "src/wageRules.ts",
+  "tests": "Ten Node tests passed: two original discard tests and eight new focused tests over the actual extracted wage rules.",
+  "limit": "The public runtime uses pure rules and a small error adapter. It does not validate JWTs, open SQL, prove distributed concurrency or complete a payroll transaction.",
+  "diagram": "UI[User action / JSON] --> Route[HTTP route]\n  Route --> Auth[Verified identity / route permissions]\n  Auth --> Rules[Input / role / state / revision rules]\n  Rules --> Store[Parameterized SQL transaction]\n  Store --> Audit[Business change + audit]\n  Audit --> Response[Useful success / validation / conflict response]"
+}
