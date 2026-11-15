@@ -83,7 +83,7 @@ Before a first commit, set your own repository-local author with `git config use
 
 **Where:** A new routes.md file.
 
-Write GET /api/health, POST /api/applications and the protected /api/timesheets boundary. Specify 400 for broken JSON, 422 for invalid application fields, 413 for oversized input, 401 for missing staff authentication and 404 for unknown paths.
+Write GET /api/health, POST /api/applications and the protected /api/timesheets boundary. Specify 400 for broken JSON, 422 for invalid application fields, 413 for oversized input, 401 for missing staff authentication and 404 for unknown paths. Require application/json on the POST route and record 415 for an unsupported content type.
 
 **Check before continuing:** You have a route/method/status table before writing handlers.
 
@@ -105,11 +105,16 @@ const server = http.createServer(async (req, res) => {
   if (req.method === 'GET' && req.url === '/api/health')
     return send(200, {service: 'my-api', status: 'ok'});
   if (req.method === 'POST' && req.url === '/api/applications') {
-    let raw = '';
+    if ((req.headers['content-type'] || '').split(';')[0].trim().toLowerCase() !== 'application/json')
+      return send(415, {error: 'Use Content-Type: application/json'});
+    let chunks = [], bytes = 0, tooLarge = false;
     for await (const chunk of req) {
-      raw += chunk;
-      if (Buffer.byteLength(raw) > 4096) return send(413, {error: 'Request too large'});
+      bytes += chunk.length;
+      if (bytes > 4096) { tooLarge = true; chunks = []; }
+      else if (!tooLarge) chunks.push(chunk);
     }
+    if (tooLarge) return send(413, {error: 'Request too large'});
+    const raw = Buffer.concat(chunks).toString('utf8');
     let body;
     try { body = JSON.parse(raw); }
     catch { return send(400, {error: 'Send valid JSON'}); }
@@ -123,6 +128,8 @@ const server = http.createServer(async (req, res) => {
     return send(401, {error: 'Configure and validate staff authentication before enabling this route'});
   return send(404, {error: 'Route not found'});
 });
+server.requestTimeout = 10000;
+server.headersTimeout = 5000;
 server.listen(8080, '127.0.0.1');
 ```
 
@@ -144,7 +151,7 @@ node server.mjs
 
 **Where:** Second terminal in the same folder.
 
-Send the requests below with curl (curl.exe in Windows PowerShell). Record response status and body for each case; 202 here means validated-not-saved, not a database commit.
+Send the requests below with curl (curl.exe in Windows PowerShell). Record response status and body for each case; 202 here means validated-not-saved, not a database commit. Also send malformed JSON, a body above 4096 bytes and a text/plain request; expect 400, 413 and 415 respectively. These limits and local tests do not replace production rate limiting or authentication.
 
 ```bash
 curl -i http://127.0.0.1:8080/api/health
