@@ -108,10 +108,15 @@ const server = http.createServer(async (req, res) => {
     if ((req.headers['content-type'] || '').split(';')[0].trim().toLowerCase() !== 'application/json')
       return send(415, {error: 'Use Content-Type: application/json'});
     let chunks = [], bytes = 0, tooLarge = false;
-    for await (const chunk of req) {
-      bytes += chunk.length;
-      if (bytes > 4096) { tooLarge = true; chunks = []; }
-      else if (!tooLarge) chunks.push(chunk);
+    try {
+      for await (const chunk of req) {
+        bytes += chunk.length;
+        if (bytes > 4096) { tooLarge = true; chunks = []; }
+        else if (!tooLarge) chunks.push(chunk);
+      }
+    } catch {
+      if (req.aborted || res.destroyed || res.writableEnded) return;
+      return send(400, {error: 'Request body could not be read; check the connection'});
     }
     if (tooLarge) return send(413, {error: 'Request too large'});
     const raw = Buffer.concat(chunks).toString('utf8');
