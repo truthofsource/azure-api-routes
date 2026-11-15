@@ -27,12 +27,27 @@ Use explicit Azure Functions routes with shared checks and clear responses. Keep
 
 The loopback preview explains the request path without submitting applications, saving timesheets or sending messages.
 
-## Step by step
+## Step by Step
+
+Build an independent version with the [reader-operated walkthrough](docs/BUILD-YOUR-OWN.md). It gives prerequisites, working locations, numbered actions, source-derived commands, expected results, verification and cleanup.
+
+For this project, your working starting point is [`data/routes.json`](data/routes.json). Expected scope: Local route/validator behavior, not complete handler hosting, real bearer-token validation or SQL access.
+
+1. **Create your own workspace.** Copy the project and record the source version before editing.
+2. **Prepare and run the baseline.** Use the documented runtimes and selected dependencies, then run the local checks.
+3. **Make your own change.** Edit a project-specific fixture, configuration or rule and rerun its positive and negative cases.
+4. **Verify and document your result.** Capture your own evidence and distinguish a local example from a live integration.
+5. **Extend and close out deliberately.** Plan any independent cloud work separately and clean up only what you created.
+
+<details>
+<summary>How the underlying platform process works</summary>
 
 1. **Choose the route (Azure Functions).** Match the request address and HTTP method to the registered handler. Reading a list and submitting a form are separate actions even when they use the same address.
 2. **Check access and answers (Entra and validators).** Staff requests require a verified identity and the right access to the selected record. Public applications use their own submission checks without giving applicants a staff account.
 3. **Save the allowed change (SQL transactions).** The live implementation checks the current record and saves related changes together in SQL. Its response tells the website what happened, while email delivery remains a separate outcome.
 4. **Prove the boundary (Node test runner).** Run the source validators against fictional examples and inspect the registered routes. Keep local validation evidence separate from real sign-in, database writes and delivery testing.
+
+</details>
 
 ## What was built
 
